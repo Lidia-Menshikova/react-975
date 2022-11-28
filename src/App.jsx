@@ -11,7 +11,7 @@ const Settings = () => {
   return <h2>Страница с настройками</h2>;
 };
 const Friends = () => {
-  return <h2>Страница с друзьями</h2>;
+  return <h2>Мои друзья</h2>;
 };
 
 function App() {
