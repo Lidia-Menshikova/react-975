@@ -7,7 +7,7 @@ const user = {
   avatar: "https://www.seekpng.com/png/full/356-3562377_personal-user.png",
 };
 
-// let users = {};
+let users = {};
 
 // const users = {
 //   0: { name: "Валерия", lastname: "Енютина", id: 4 },
@@ -18,11 +18,10 @@ const user = {
 //   5: { name: "Евгения", lastname: "Петрова", id: 14 },
 // };
 
-export function getUser() {
-  // export function getUser(userId) {
-  // for (let i = 0; i < Object.keys(users).length; i++) {
-  //   if (users[i].id == userId) return users[i];
-  // }
+export function getUser(userId) {
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id == userId) return users[i];
+  }
   return user;
 }
 // export function getUser(userId) {
@@ -34,7 +33,7 @@ export function getUser() {
 
 export async function getUsers() {
   let response = await fetch("http://aroma.bilbe.p-host.in/getUsers");
-  let users = await response.json();
+  users = await response.json();
   // console.log(users);
   return users;
 }
