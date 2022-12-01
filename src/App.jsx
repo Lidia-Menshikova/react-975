@@ -4,6 +4,7 @@ import Profile from "./components/Profile";
 import Messages from "./components/Messages";
 import Settings from "./components/Settings";
 import Friends from "./components/Friends";
+import Shop from "./components/Shop";
 
 function App(props) {
   return (
@@ -26,6 +27,9 @@ function App(props) {
             <NavLink className="nav-link" to="friends">
               Мои друзья
             </NavLink>
+            <NavLink className="nav-link" to="shop">
+              Магазин
+            </NavLink>
           </div>
         </div>
         <div className="col-sm-9">
@@ -40,6 +44,7 @@ function App(props) {
               path="/friends/*"
               element={<Friends function={props.function.key_getUsers} />}
             />
+            <Route path="/shop/*" element={<Shop />} />
           </Routes>
         </div>
       </div>

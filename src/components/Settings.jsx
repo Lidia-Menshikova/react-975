@@ -1,25 +1,48 @@
-import { useState } from "react";
+// import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Settings() {
-  const [count, setCount] = useState(0);
+// import { useEffect } from "react";
 
-  return (
-    <div className="row">
-      <div className="col-6">
-        <p>Количество кликов: {count}</p>
-      </div>
-      <div className="col-6">
-        <button
-          className="btn btn-warning"
-          onClick={() => {
-            setCount(count + 1);
-          }}
-        >
-          Нажимай тут
-        </button>
-      </div>
-    </div>
-  );
-}
+const Settings = () => {
+  const [advice, setAdvice] = useState("");
+
+  useEffect(() => {
+    const url = "https://api.adviceslip.com/advice";
+    const fetchData = async () => {
+      try {
+        let response = await fetch(url);
+        let json = await response.json();
+        // console.log(json.slip.advice);
+        setAdvice(json.slip.advice);
+      } catch (error) {
+        console.log("error ", error);
+      }
+    };
+    fetchData();
+  }, []);
+  return <div>{advice}</div>;
+};
+
+// function Settings() {
+//   const [count, setCount] = useState(0);
+
+//   return (
+//     <div className="row">
+//       <div className="col-6">
+//         <p>Количество кликов: {count}</p>
+//       </div>
+//       <div className="col-6">
+//         <button
+//           className="btn btn-warning"
+//           onClick={() => {
+//             setCount(count + 1);
+//           }}
+//         >
+//           Нажимай тут
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
 
 export default Settings;
