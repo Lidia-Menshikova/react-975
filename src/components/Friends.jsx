@@ -14,7 +14,7 @@ const TableRow = (props) => {
   );
 };
 
-class Friends extends React.Component {
+export class Friends extends React.Component {
   constructor(props) {
     super(props);
     this.state = { userRow: [] };
@@ -37,7 +37,6 @@ class Friends extends React.Component {
           />
         );
       }
-
       this.setState({ userRow: userRow });
     });
   }
@@ -56,5 +55,3 @@ class Friends extends React.Component {
     );
   }
 }
-
-export default Friends;

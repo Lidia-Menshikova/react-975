@@ -1,14 +1,14 @@
 import { NavLink, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Profile from "./components/Profile";
-import Messages from "./components/Messages";
-import Settings from "./components/Settings";
-import Friends from "./components/Friends";
-import Shop from "./components/Shop";
+import { Profile } from "./components/Profile";
+import { Messages } from "./components/Messages";
+import { Settings } from "./components/Settings";
+import { Friends } from "./components/Friends";
+import { Shop } from "./components/Shop";
 
 function App(props) {
   return (
-    <div className="container-fluid mt-5">
+    <div className="mt-5 container-fluid">
       <div className="row">
         <div className="col-sm-3">
           <div
@@ -38,13 +38,13 @@ function App(props) {
               path="/profile/*"
               element={<Profile function={props.function.key_getUser} />}
             />
-            <Route path="/messages/*" element={<Messages />} />
-            <Route path="/settings/*" element={<Settings />} />
+            <Route path="/messages" element={<Messages />} />
+            <Route path="/settings" element={<Settings />} />
             <Route
-              path="/friends/*"
+              path="/friends"
               element={<Friends function={props.function.key_getUsers} />}
             />
-            <Route path="/shop/*" element={<Shop />} />
+            <Route path="/shop" element={<Shop />} />
           </Routes>
         </div>
       </div>

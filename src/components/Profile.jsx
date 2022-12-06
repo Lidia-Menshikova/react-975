@@ -1,10 +1,10 @@
 import styles from "./Profile.module.css";
 
-const Profile = (props) => {
+export const Profile = (props) => {
   let userId = location.pathname.split("/")[2];
   let user = props.function(userId);
-  // console.log(user);
-  // console.log(userId);
+
+  //console.log(userId);
   return (
     <div className="row">
       <div className="col-sm-3">
@@ -27,5 +27,3 @@ const Profile = (props) => {
     </div>
   );
 };
-
-export default Profile;
